@@ -1,0 +1,26 @@
+version: '3'
+services:
+  sender:
+    build:
+      context: ./sender
+    depends_on:
+      - receiver1
+      - receiver2
+      - receiver3
+    ports:
+      - "8081:8080"
+  receiver1:
+    build:
+      context: ./receiver
+    ports:
+      - "8082:8080"
+  receiver2:
+    build:
+      context: ./receiver
+    ports:
+      - "8083:8080"
+  receiver3:
+    build:
+      context: ./receiver
+    ports:
+      - "8084:8080"
