@@ -12,15 +12,32 @@ services:
   receiver1:
     build:
       context: ./receiver
+    depends_on:
+      - heartbeat
     ports:
       - "8082:8080"
+    environment:
+      - CONTAINER_NAME=receiver1
   receiver2:
     build:
       context: ./receiver
+    depends_on:
+      - heartbeat
     ports:
       - "8083:8080"
+    environment:
+      - CONTAINER_NAME=receiver2
   receiver3:
     build:
       context: ./receiver
+    depends_on:
+      - heartbeat
     ports:
       - "8084:8080"
+    environment:
+      - CONTAINER_NAME=receiver3
+  heartbeat:
+    build:
+      context: ./heartbeat
+    ports:
+      - "8085:8080"
