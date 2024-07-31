@@ -17,6 +17,9 @@ INSTRUCCIONES PARA CORRER
 3.2 vayan a la carpeta de cada servidor por ejemplo mensajeriaRest/sender
 
 
+3.3 Repetir para los demas servidores
+
+
 3.3 ejecutar por terminal comando mvn clean package
 
 
