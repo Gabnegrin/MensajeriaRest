@@ -8,22 +8,27 @@ INSTRUCCIONES PARA CORRER
 
 
 
-3 - Correr el comando docker-compose up --build
+3 - Correr el  siguiente comando 
+```bash
+docker-compose up --build
+```
 
 
 3.1 En el caso de que no funcione, compilar cada aplicacion y construir jar
 
 
-3.2 vayan a la carpeta de cada servidor por ejemplo mensajeriaRest/sender
+3.2 vayan a la carpeta de cada servidor por (hearthbeat, proxy, receiver, sanity, sender)
 
 
 3.3 Repetir para los demas servidores
 
 
-3.3 ejecutar por terminal comando mvn clean package
+3.3 ejecutar por terminal el siguiente comando
+```bash
+mvn clean package
+```
 
-
-4 - esperar como 20 seg a que todo cargue
+4 - Esperar que todo cargue (El tiempo depende de tu computador, puede demorarse 1 minuto)
 
 
 
