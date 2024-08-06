@@ -7,6 +7,7 @@ services:
       - receiver1
       - receiver2
       - receiver3
+      - proxy
     ports:
       - "8081:8080"
   receiver1:
@@ -36,6 +37,18 @@ services:
       - "8084:8080"
     environment:
       - CONTAINER_NAME=receiver3
+  proxy:
+    build:
+      context: ./proxy
+    depends_on:
+      - heartbeat
+      - receiver1
+      - receiver2
+      - receiver3
+    ports:
+      - "8087:8080"
+    environment:
+      - CONTAINER_NAME=proxy
   heartbeat:
     build:
       context: ./heartbeat

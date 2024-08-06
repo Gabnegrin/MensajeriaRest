@@ -16,9 +16,8 @@ public class SenderService {
     private static final Logger logger = LoggerFactory.getLogger(SenderService.class);
 
     private final RestTemplate restTemplate;
-    private final String receiverUrl = "http://receiver1:8080/receive";
-    private final String receiverUrl2 = "http://receiver2:8080/receive";
-    private final String receiverUrl3 = "http://receiver3:8080/receive";
+
+    private final String proxyUrl = "http://proxy:8080/proxy";
     private final String receiverUrl4 = "http://heartbeat:8080/latido";
 
     public SenderService(RestTemplate restTemplate) {
@@ -34,9 +33,7 @@ public class SenderService {
         int numeroAleatorio = new Random().nextInt(100);
         String latido = "sender";
         logger.info("Enviando número aleatorio: {}", numeroAleatorio);
-        enviarAReceptor(receiverUrl, numeroAleatorio);
-        enviarAReceptor(receiverUrl2, numeroAleatorio);
-        enviarAReceptor(receiverUrl3, numeroAleatorio);
+        enviarAReceptor(proxyUrl, numeroAleatorio);
         enviarAReceptor(receiverUrl4, latido);
     }
 
