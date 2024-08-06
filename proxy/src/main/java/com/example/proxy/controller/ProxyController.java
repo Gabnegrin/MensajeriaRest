@@ -21,17 +21,25 @@ public class ProxyController {
     private final String receiverUrl2 = "http://receiver2:8080/receive";
     private final String receiverUrl3 = "http://receiver3:8080/receive";
 
+    private final String sanityUrl = "http://sanity:8080/check";
+
     public ProxyController(RestTemplate restTemplate) {
         this.restTemplate = restTemplate;
     }
 
-    @PostMapping("/proxy")
-    public void receiveNumber(@RequestBody int randomNumber) {
-        System.out.println("Proxy recibio el siguiente numero: " + randomNumber);
+    @PostMapping("/toSanitize")
+    public void receiveNumber(@RequestBody int number) {
+        System.out.println("Proxy recibio el siguiente numero de REST: " + number);
 
-        enviarAReceptor(receiverUrl1, randomNumber);
-        enviarAReceptor(receiverUrl2, randomNumber);
-        enviarAReceptor(receiverUrl3, randomNumber);
+        enviarAReceptor(sanityUrl, number);
+    }
+
+    @PostMapping("/toReceivers")
+    public void sendToReceivers(@RequestBody int number) {
+        System.out.println("Proxy recibio el siguiente numero sanitizado: " + number);
+        enviarAReceptor(receiverUrl1, number);
+        enviarAReceptor(receiverUrl2, number);
+        enviarAReceptor(receiverUrl3, number);
     }
 
     @Async

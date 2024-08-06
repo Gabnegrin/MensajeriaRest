@@ -17,7 +17,7 @@ public class SenderService {
 
     private final RestTemplate restTemplate;
 
-    private final String proxyUrl = "http://proxy:8080/proxy";
+    private final String proxyUrl = "http://proxy:8080/toSanitize";
     private final String receiverUrl4 = "http://heartbeat:8080/latido";
 
     public SenderService(RestTemplate restTemplate) {
